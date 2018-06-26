@@ -24,7 +24,19 @@ if (!empty($input)) {
 	}
 
 	// Run command
-	exec('python3 '.BIN.'/spotify/spotdl.py -f '.FILES.'/'.$downloadLocation.' '.$selector.' 2>&1', $output, $return_var);
+	exec('python3 '.BIN.'/spotify/spotdl.py -f "'.FILES.'/'.$downloadLocation.'" '.$selector.' 2>&1', $output, $return_var);
+
+	// // Download if local 
+	// if ($downloadLocation == 'Local') {
+
+	// 	$GLOBALS['currentFile'] = FILES_URL.'/'.$downloadLocation;
+
+	// 	exit(APPLICATION_URL."/PostHandler.php");
+
+	// 	header("Location: ".APPLICATION_URL."/PostHandler.php");
+	// 	exit();
+
+	// }
 
 	$return['variable'] = $return_var;
 	$return['output'] = $output;
