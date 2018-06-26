@@ -1,11 +1,19 @@
-.header {
-
-	height: 180px;
-
+.form-container {
+	height: 500px;
 }
 
-.form-container {
-	
-	height: 500px;
+.loading {
+	height: 100px;
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 80px;
+	visibility: hidden;
+}
 
+.loading h3 {
+	text-align: center;
+}
+
+#download-type {
+	text-transform: capitalize;
 }
