@@ -38,7 +38,8 @@ $downloadLocations = $structure->getDownloadLocations();
 			
 			<div class="loading">
 				
-				<h3>Downloading Now..</h3>
+				<h3 class="loader-text"></h3>
+				<p class="loader-subtext"></p>
 
 			</div>
 
@@ -57,8 +58,8 @@ $downloadLocations = $structure->getDownloadLocations();
 						<div class="input-group-append">
 						<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Download Type</button>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="javascript: onclick(downloadType('song'));">Song</a>
-								<a class="dropdown-item" href="javascript: onclick(downloadType('link'));">Link</a>
+								<a class="dropdown-item" href="javascript: downloadType('song');">Song</a>
+								<a class="dropdown-item disabled" href="javascript: void();">Playlist (Coming soon)</a>
 							</div>
 						</div>
 
@@ -86,6 +87,16 @@ $downloadLocations = $structure->getDownloadLocations();
 						?>
 
 					</select>
+
+				</div>
+
+				<div class="form-group">
+					
+					<label class="form-checkbox">
+						<input type="checkbox" class="form-control-input" name="download-locally" value="true">
+						<span class="form-control-indicator"></span>
+						<span class="form-control-description">Local Download</span>
+					</label>
 
 				</div>
 

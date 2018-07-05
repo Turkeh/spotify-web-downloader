@@ -2,8 +2,6 @@
 
 require_once('../config.php');
 
-
-
 $currentFile = $GLOBALS['currentFile'];
 
 $finfo = finfo_open(FILEINFO_MIME_TYPE);

@@ -5,9 +5,9 @@ function submit(){
     if (!validateForm())
         return false;
 
-	var serializedData = $('#download-form').serialize();
+    loader('Preparing File.');
 
-	$('.loading').css('visibility', 'visible');
+	var serializedData = $('#download-form').serialize();
 
     $.ajax({
         url: application_url+"/PostHandler.php",
@@ -18,13 +18,13 @@ function submit(){
 
         	console.log('Very nice, how much?');
 
-        	if (data.output[3] == 'INFO: Applying metadata')
-        		window.alert('Download Complete');
-        	else
-        		window.alert('Download Error');
+        	if (data.status == 'Success')
+                loader('Success! Downloading file');
+            else
+        		loader('Sorry there was an error preparing your file', 'Please try again.', true);
 
-			$('.loading').css('visibility', 'hidden');
-
+            if (data.filepath)
+                window.location.href = data.filepath;
         }
     });
 
@@ -43,7 +43,6 @@ function downloadType(type) {
 	}
 
 	$('#download-input').attr('placeholder', placeholder);
-
 }
 
 function validateForm() {
@@ -59,6 +58,22 @@ function validateForm() {
         valid = false;
     }
 
-
     return valid;
+}
+
+function loader(mainContent, subContent = '', persistent = false) {
+
+    $('.loading').css('visibility', 'visible');
+
+    $('.loader-text').html(mainContent);
+
+    if (subContent != '')
+        $('.loader-subtext').html(subContent);
+
+    if (!persistent) {
+        setTimeout(function(){ 
+            $('.loading').css('visibility', 'hidden');
+        }, 7000);
+    }
+
 }

@@ -7,3 +7,11 @@ define("ASSETS", $_SERVER['DOCUMENT_ROOT']."/assests");
 define("ASSETS_URL", "/assests");
 define("APPLICATION", $_SERVER['DOCUMENT_ROOT']."/application");
 define("APPLICATION_URL", "/application");
+
+function debug($log) {
+
+	file_put_contents($_SERVER['DOCUMENT_ROOT'].'/storage/logs/debug-log.log', "\n\r".
+		print_r($log, true)
+	, FILE_APPEND);
+
+}
