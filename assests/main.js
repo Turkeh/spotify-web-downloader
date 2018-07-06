@@ -5,7 +5,7 @@ function submit(){
     if (!validateForm())
         return false;
 
-    loader('Preparing File.');
+    loader('Preparing File.', '', true);
 
 	var serializedData = $('#download-form').serialize();
 
@@ -18,9 +18,9 @@ function submit(){
 
         	console.log('Very nice, how much?');
 
-        	if (data.status == 'Success')
-                loader('Success! Downloading file');
-            else
+        	if (data.status == 'Success' && data.output.length > 0 )
+                	loader('Success! Downloading file');
+            	else
         		loader('Sorry there was an error preparing your file', 'Please try again.', true);
 
             if (data.filepath)
@@ -69,11 +69,13 @@ function loader(mainContent, subContent = '', persistent = false) {
 
     if (subContent != '')
         $('.loader-subtext').html(subContent);
+    else
+        $('.loader-subtext').html('');
 
     if (!persistent) {
         setTimeout(function(){ 
             $('.loading').css('visibility', 'hidden');
-        }, 7000);
+        }, 10000);
     }
 
 }
