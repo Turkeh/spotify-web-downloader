@@ -70,7 +70,7 @@ $downloadLocations = $structure->getDownloadLocations();
 
 				</div>
 
-				<div class="form-group">
+				<div class="form-group hidden" style="display: none;">
 
 					<label for="download-location">Download Location</label>
 					<select name="download-location" id="download-location" class="form-control">
@@ -90,10 +90,10 @@ $downloadLocations = $structure->getDownloadLocations();
 
 				</div>
 
-				<div class="form-group">
+				<div class="form-group" style="display: none;">
 					
 					<label class="form-checkbox">
-						<input type="checkbox" class="form-control-input" name="download-locally" value="true">
+						<input type="checkbox" checked class="form-control-input" name="download-locally" value="true">
 						<span class="form-control-indicator"></span>
 						<span class="form-control-description">Local Download</span>
 					</label>
