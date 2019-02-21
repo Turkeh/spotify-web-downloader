@@ -17,9 +17,10 @@ $downloadLocations = $structure->getDownloadLocations();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Loader . Fatherbean</title>
+	<title>Fatherbean - Loader</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,6 +39,8 @@ $downloadLocations = $structure->getDownloadLocations();
 			
 			<div class="loading">
 				
+				<span class="close-loader" onclick="closeLoader()"><i class="fa fa-times-circle"></i></span>
+
 				<h3 class="loader-text"></h3>
 				<p class="loader-subtext"></p>
 
@@ -50,18 +53,10 @@ $downloadLocations = $structure->getDownloadLocations();
 				<div class="form-group">
 
 					<label for="spotify-song">Spotify <span class="download-type">Song</span></label>
-					<div class="input-group">
+					<div class="form-group">
 
 						<input type="text" name="download-input" id="download-input" class="form-control validation" aria-label="Download input" placeholder="Hilltop Hoods - The Sentinel">
 						<input type="hidden" name="download-type" id="download-type-input" value="song">
-
-						<div class="input-group-append">
-						<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Download Type</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item" href="javascript: downloadType('song');">Song</a>
-								<a class="dropdown-item disabled" href="javascript: void();">Playlist (Coming soon)</a>
-							</div>
-						</div>
 
 						<div class="invalid-feedback">
 							Please enter your <span class="download-type">song</span>.
@@ -100,7 +95,7 @@ $downloadLocations = $structure->getDownloadLocations();
 
 				</div>
 
-				<span onclick="submit()" class="btn btn-primary">Submit</span>
+				<span id="submit-button" onclick="submit()" class="btn btn-outline-secondary">Submit</span>
 			</form>
 
 			</div>

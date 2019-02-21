@@ -1,15 +1,48 @@
+body {
+	background-image: url(/assets/back.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .form-container {
-	height: 500px;
+    position: absolute;
+    width: 40%;
+    min-width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 50px;
 }
 
 .loading {
-	height: 100px;
-	width: 500px;
-	margin: 0 auto;
-	margin-top: 80px;
-	margin-bottom: 20px;
+    position: absolute;
+    width: 40%;
+    min-width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 86px;
+    z-index: 1;
 	visibility: hidden;
 	text-align: center;
+}
+
+.close-loader {
+	display: none;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	cursor: pointer;
 }
 
 #download-type {

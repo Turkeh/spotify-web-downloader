@@ -25,7 +25,7 @@ if (!empty($input)) {
 	}
 
 	// Run command
-	exec('python3 '.BIN.'/spotify/spotdl.py -f "'.FILES.'/'.$downloadLocation.'" '.$selector.' 2>&1', $output, $status);
+	exec('spotdl -c "'.BIN.'/spotify/config.yml" -f "'.FILES.'/'.$downloadLocation.'" '.$selector.' 2>&1', $output, $status);
 
 	// Download if local 
 	if ($localDownload) {
@@ -43,6 +43,8 @@ if (!empty($input)) {
 		}
 
 	}
+
+	$return['command'] ='spotdl -c "'.BIN.'/spotify/config.yml" -f "'.FILES.'/'.$downloadLocation.'" '.$selector.' 2>&1';
 
 	$statusMap = array(
 		0 => 'Success',
